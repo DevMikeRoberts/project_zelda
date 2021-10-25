@@ -852,7 +852,7 @@ MonoBehaviour:
   weaponSprites: []
   weaponPrices: 
   xpTable: 
-  player: {fileID: 0}
+  player: {fileID: 1573191605}
   gold: 0
   exp: 0
 --- !u!4 &807403458
@@ -10499,6 +10499,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1573191605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 446407646006379207, guid: 6af3c0991c10d40d2b2f4f18763000d5, type: 3}
+  m_PrefabInstance: {fileID: 446407646955575898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b867acb69b8c4aba9081e879a330d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1869481324
 GameObject:
   m_ObjectHideFlags: 0
