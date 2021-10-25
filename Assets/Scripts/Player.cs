@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
     private BoxCollider2D boxCollider;
     private Vector3 moveDelta;
     private RaycastHit2D hit;
+    public int keyInventory;
 
     private void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
