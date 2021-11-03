@@ -202,6 +202,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyInventory: 0
   endLevel: 0
+  currentHP: 0
+  maxHP: 100
+  hpBar: {fileID: 0}
 --- !u!61 &640032097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -300,6 +303,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2287383448099200942, guid: eadf34bc882f6438182e534988b55c6e, type: 3}
+      propertyPath: lookAt
+      value: 
+      objectReference: {fileID: 640032099}
     - target: {fileID: 2287383448646842482, guid: eadf34bc882f6438182e534988b55c6e, type: 3}
       propertyPath: m_Name
       value: Camera

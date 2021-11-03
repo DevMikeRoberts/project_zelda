@@ -17,6 +17,7 @@ public class KeyChest : Collectable  {
             collected = true;
             GetComponent<SpriteRenderer>().sprite = openChest;
             player.keyInventory = keyNum;
+            GameManager.instance.ShowText("Collected Key #" + keyNum + "!", 20,Color.white, transform.position,Vector3.up * 25, 1.5f);
             Debug.Log("Grant Key #" + keyNum);
 
         }
