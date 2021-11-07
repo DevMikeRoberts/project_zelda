@@ -11,7 +11,7 @@ public class HPBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()    {
 
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         hpBar = GetComponent<Slider>();
         hpBar.maxValue = player.maxHP;
         hpBar.value = player.maxHP; 
