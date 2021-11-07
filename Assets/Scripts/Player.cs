@@ -8,8 +8,40 @@ public class Player : MonoBehaviour {
     private Vector3 moveDelta;
     private RaycastHit2D hit;
 
+    [System.Serializable]
+    public class PlayerStats
+    {
+        public int maxHealth = 100;
+
+        private int _curHealth;
+        public int curHealth
+        {
+            get { return _curHealth; }
+            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
+        }
+
+        public void Init()
+        {
+            curHealth = maxHealth;
+        }
+    }
+
+    public PlayerStats stats = new PlayerStats();
+
+    [SerializeField]
+    private StatusIndicator statusIndicator;
+
     private void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
+
+        if(statusIndicator == null)
+        {
+            Debug.LogError("No status indicator referenced on Player");
+        }
+        else
+        {
+            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+        }
     }
 
     private void FixedUpdate() {
@@ -42,5 +74,16 @@ public class Player : MonoBehaviour {
             transform.Translate(moveDelta.x * Time.deltaTime,0,0);
         }
 
+    }
+
+    public void DamagePlayer(int damage)
+    {
+        stats.curHealth -= damage;
+        if(stats.curHealth <= 0)
+        {
+            //code to kill the player
+        }
+
+        statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
     }
 }

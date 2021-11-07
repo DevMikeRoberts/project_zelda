@@ -5,6 +5,30 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    [System.Serializable]
+    public class EnemyStats
+    {
+        public int maxHealth = 100;
+
+        private int _curHealth;
+        public int curHealth
+        {
+            get { return _curHealth; }
+            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
+        }
+
+        public int damage = 40;
+
+        public void Init()
+        {
+            curHealth = maxHealth;
+        }
+    }
+
+    public EnemyStats stats = new EnemyStats();
+
+    [SerializeField]
+    private StatusIndicator statusIndicator;
 
     public Transform target;
 
@@ -31,9 +55,29 @@ public class EnemyAI : MonoBehaviour
        // camera = GameObject.FindObjectWithTag("camera");
 
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        stats.Init();
+        if(statusIndicator != null)
+        {
+            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+        }
         
         
 ;    }
+
+    public void DamageEnemy(int damage)
+    {
+        stats.curHealth = damage;
+        if(stats.curHealth <= 0)
+        {
+            //code to kill the enemy
+        }
+
+        if(statusIndicator != null)
+        {
+            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
+        }
+    }
 
     void UpdatePath()
     {
@@ -53,6 +97,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (path == null)
             return;
 
@@ -86,6 +131,16 @@ public class EnemyAI : MonoBehaviour
         else if (force.x <= -0.01f)
         {
             enemygfx.localScale = new Vector3(-1f, 1f, 1f);
+        }
+    }
+
+    void onCollisionEnter2D(Collision2D _colInfo)
+    {
+        Player _player = _colInfo.collider.GetComponent<Player>();
+        if(_player != null)
+        {
+            _player.DamagePlayer(stats.damage);
+            DamageEnemy(9999999);
         }
     }
 }
