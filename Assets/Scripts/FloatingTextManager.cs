@@ -8,7 +8,21 @@ public class FloatingTextManager : MonoBehaviour {
     public GameObject textContainer;
     public GameObject textPrefab;
 
+    public static FloatingTextManager txt_instance;
+
     private List<FloatingText> floatingTexts = new List<FloatingText>();
+
+    private void Awake() {
+
+        if (FloatingTextManager.txt_instance != null) {
+            Destroy(gameObject);
+            return;
+        }
+
+        txt_instance = this;
+        DontDestroyOnLoad(gameObject);
+
+    }
 
     private void Update() {
         
