@@ -10,8 +10,13 @@ public class Player : MonoBehaviour {
     public int keyInventory;
     public int endLevel = 0;
 
+    public int currentHP = 0;
+    public int maxHP = 100;
+    public HPBar hpBar;
+
     private void Start() {
         boxCollider = GetComponent<BoxCollider2D>();
+        currentHP = maxHP;
     }
 
     private void FixedUpdate() {
@@ -44,5 +49,11 @@ public class Player : MonoBehaviour {
             transform.Translate(moveDelta.x * Time.deltaTime,0,0);
         }
 
+    }
+
+    public void DamagePlayer(int damage)    {
+        
+        currentHP -= damage;
+        hpBar.SetHealth(currentHP);
     }
 }

@@ -6,16 +6,18 @@ using UnityEngine.UI;
 public class HPBar : MonoBehaviour
 {
     public Slider hpBar;
-    public Health health;
+    public Player player;
+
     // Start is called before the first frame update
-    void Start(){
-        health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+    void Start()    {
+
+        player = GameObject.Find("Player").GetComponent<Player>();
         hpBar = GetComponent<Slider>();
-        hpBar.maxValue = health.maxHP;
-        hpBar.value = health.maxHP; 
+        hpBar.maxValue = player.maxHP;
+        hpBar.value = player.maxHP; 
     }
 
-    public void SetHealth(int hp){
+    public void SetHealth(int hp)   { 
         hpBar.value = hp;
     }
 }
