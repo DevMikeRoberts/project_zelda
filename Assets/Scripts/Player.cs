@@ -14,11 +14,6 @@ public class Player : MonoBehaviour {
     public int maxHP = 100;
     public HPBar hpBar;
 
-    public PlayerStats stats = new PlayerStats();
-
-    [SerializeField]
-    private StatusIndicator statusIndicator;
-
     private void Start() {
       
         boxCollider = GetComponent<BoxCollider2D>();
