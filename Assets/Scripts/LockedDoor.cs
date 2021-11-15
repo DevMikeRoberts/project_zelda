@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class LockedDoor : Collideable   {
 
-    public Sprite openDoor_top;
-    public Sprite openDoor_bottom;
-    public GameObject child_Object;
+    public Sprite openDoor;
     public int keyToUnlock;
     private Player player;
 
@@ -18,11 +16,8 @@ public class LockedDoor : Collideable   {
         if (coll.name == "Player") {
             int keyHas = player.keyInventory;
             if (keyHas == keyToUnlock) {
-                GetComponent<SpriteRenderer>().sprite = openDoor_top;
-                child_Object.GetComponent<SpriteRenderer>().sprite = openDoor_bottom;
+                GetComponent<SpriteRenderer>().sprite = openDoor;
                 GetComponent<BoxCollider2D>().enabled = false;
-                child_Object.GetComponent<BoxCollider2D>().enabled = false;
-                GameManager.instance.ShowText("Door Unlocked!", 20,Color.white, transform.position,Vector3.up * 25, 1.5f);
             }
         }
 
