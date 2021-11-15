@@ -8,9 +8,18 @@ public class Player : MonoBehaviour {
     private Vector3 moveDelta;
     private RaycastHit2D hit;
     public int keyInventory;
+    public int endLevel = 0;
+
+    public int currentHP = 0;
+    public int maxHP = 100;
+    public HPBar hpBar;
 
     private void Start() {
+      
         boxCollider = GetComponent<BoxCollider2D>();
+
+        currentHP = maxHP;
+
     }
 
     private void FixedUpdate() {
@@ -42,6 +51,14 @@ public class Player : MonoBehaviour {
             //Movement Control for player in x-axis
             transform.Translate(moveDelta.x * Time.deltaTime,0,0);
         }
+
+    }
+
+
+    public void DamagePlayer(int damage)    {
+        
+        currentHP -= damage;
+        hpBar.SetHealth(currentHP);
 
     }
 }

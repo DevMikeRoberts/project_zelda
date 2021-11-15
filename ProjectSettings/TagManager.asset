@@ -15,7 +15,7 @@ TagManager:
   - 
   - Blocking
   - Actor
-  - 
+  - PostProcessing
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 3722564871
+    locked: 0
+  - name: Dialogue
+    uniqueID: 2119445857
     locked: 0
