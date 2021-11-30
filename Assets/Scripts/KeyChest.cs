@@ -19,7 +19,8 @@ public class KeyChest : Collectable  {
             player.keyInventory = keyNum;
             GameManager.instance.ShowText("Collected Key #" + keyNum + "!", 20,Color.white, transform.position,Vector3.up * 25, 1.5f);
             Debug.Log("Grant Key #" + keyNum);
-
+            Inventory inventory = (Inventory) player.GetComponent(typeof(Inventory));
+            inventory.Pickup("Golden Key");
         }
 
 

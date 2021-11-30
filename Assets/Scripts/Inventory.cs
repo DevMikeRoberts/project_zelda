@@ -10,17 +10,11 @@ public class Inventory : MonoBehaviour // add to player
 
     void Start()
     {
-        Pickup(2);
-        Pickup(1);
-        Pickup(0);
-        Pickup(2);
+        
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            //set inventory alpha to 0, interactable off, blocks raycasts off
-        }
+        
     }
 
     public void Pickup(int id)

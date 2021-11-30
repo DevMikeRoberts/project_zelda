@@ -7,7 +7,7 @@ public class UIInventory : MonoBehaviour //add to InvPanel
     public List<UIItem> uIItems = new List<UIItem>();
     public GameObject slot;
     public Transform slotPanel;
-    public int slotNumber = 9;
+    public int slotNumber = 6;
 
     private void Awake()
     {

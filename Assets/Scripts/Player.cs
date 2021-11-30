@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     public int currentHP = 0;
     public int maxHP = 100;
     public HPBar hpBar;
+    public int dmgtaken = 0;
 
     private void Start() {
       
@@ -55,10 +56,9 @@ public class Player : MonoBehaviour {
     }
 
 
-    public void DamagePlayer(int damage)    {
-        
+    public void DamagePlayer(int damage){
         currentHP -= damage;
         hpBar.SetHealth(currentHP);
-
+        dmgtaken += damage;
     }
 }
