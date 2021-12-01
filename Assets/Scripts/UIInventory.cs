@@ -27,7 +27,14 @@ public class UIInventory : MonoBehaviour //add to InvPanel
 
     public void AddNewItem(Item item)
     {
-        UpdateSlot(uIItems.FindIndex(i => i.item == null), item);
+        for(int i = 0; i< uIItems.Count; i++)
+        {
+            if(uIItems[i].item == null)
+            {
+                UpdateSlot(i, item);
+                break;
+            }
+        }
     }
 
     public void RemoveItem(Item item)

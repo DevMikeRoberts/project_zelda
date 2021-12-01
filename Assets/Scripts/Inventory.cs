@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour // add to player
 
     void Start()
     {
-        
+
     }
     void Update()
     {

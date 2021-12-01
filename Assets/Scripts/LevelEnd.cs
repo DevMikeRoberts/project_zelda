@@ -9,6 +9,9 @@ public class LevelEnd : MonoBehaviour
     public Text stopwatchTxt;
     public GameObject endScreen;
     public Image endScreenBG;
+    private Player player;
+    public Text dmgtotal;
+    public float time = 60f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +24,31 @@ public class LevelEnd : MonoBehaviour
     void Update()
     {
         stopwatch += Time.deltaTime;
-        stopwatchTxt.text = Mathf.Round(stopwatch).ToString();
         //if (Input.GetKeyDown(KeyCode.Space)){ Time.timeScale = 1;}
     }
-    public void CreateEM() //display and then go to coroutine
+    public void CreateEM()
     {
         endScreenBG.color = Color.white;
         foreach (Text temp in endScreen.GetComponentsInChildren<Text>())
         {
             temp.color = Color.white;
         }
-        ///update values on EM after confirming score w team
+        stopwatchTxt.text = Mathf.Round(stopwatch).ToString();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        dmgtotal.text = player.dmgtaken.ToString();
+        int score = 0;
+        if (int.Parse(stopwatchTxt.text) < 60) { score += 600; }
+        else if (int.Parse(stopwatchTxt.text) > 60 && int.Parse(stopwatchTxt.text) < 300) { score += 600 - (int.Parse(stopwatchTxt.text) - 60) * 2; }
+        else if (int.Parse(stopwatchTxt.text) > 300) { score += 120; }
+
+        score += 300 - player.dmgtaken;
+
+        //score += number of enemies killed * 10;
+
         //wait on end level screen
         //Time.timeScale = 0;
-        //StartCoroutine(Rest());
+        //StartCoroutine(Wait(time));
+        //StartCoroutine(WaitForKeyDown(keycode.space));
 
         //after resuming: 
         endScreenBG.color = Color.clear;
@@ -43,20 +57,15 @@ public class LevelEnd : MonoBehaviour
             temp.color = Color.white;
         }
     }
-    IEnumerator Rest() //wait until input
+    IEnumerator Wait(float time)
     {
-        yield return waitFor();
+        yield return new WaitForSeconds(time);
     }
-    private IEnumerator waitFor()
+    IEnumerator WaitForKeyDown(KeyCode keycode) //wait until input
     {
-        bool done = false;
-        while (!done)
+        do
         {
-            if (Input.GetKeyDown("space"))
-            {
-                done = true;
-            }
             yield return null;
-        }
+        } while (!Input.GetKeyDown(keycode));
     }
 }
