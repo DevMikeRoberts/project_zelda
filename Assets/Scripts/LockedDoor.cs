@@ -23,6 +23,8 @@ public class LockedDoor : Collideable   {
                 GetComponent<BoxCollider2D>().enabled = false;
                 child_Object.GetComponent<BoxCollider2D>().enabled = false;
                 GameManager.instance.ShowText("Door Unlocked!", 20,Color.white, transform.position,Vector3.up * 25, 1.5f);
+                Inventory inventory = (Inventory)player.GetComponent(typeof(Inventory));
+                inventory.RemoveItem("Golden Key");
             }
         }
 

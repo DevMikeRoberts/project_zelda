@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6437134247988015937, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6437134247988015937, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29802,7 +29802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2287383448646842484, guid: eadf34bc882f6438182e534988b55c6e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2287383448646842484, guid: eadf34bc882f6438182e534988b55c6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29895,7 +29895,7 @@ Transform:
   - {fileID: 1259655493}
   - {fileID: 251109698}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &817825056
 PrefabInstance:
@@ -29914,7 +29914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446407646006379205, guid: 6af3c0991c10d40d2b2f4f18763000d5, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 446407646006379205, guid: 6af3c0991c10d40d2b2f4f18763000d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41246,7 +41246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6437134247988015937, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6437134247988015937, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43004,7 +43004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1472860351
 PrefabInstance:
@@ -43035,7 +43035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6437134247988015937, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6437134247988015937, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43079,6 +43079,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83faf583dd4064dd1b8924de432474d9, type: 3}
+--- !u!1001 &1542735595
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6758508190460130348, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_Name
+      value: AngelSpeechBubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.561
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.682
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.3340259
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.94256395
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 219.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190460130350, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190839412216, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: dialogue
+      value: Hello Link, welcome to Land 1. Collect the keys and unlock the doors
+        to the next land. Be careful of enemies!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758508190839412221, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97b94f7c52e2e486ebe935bd7410e4c5, type: 3}
 --- !u!1001 &1757298435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43161,7 +43227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3207869999279581015, guid: 3fe787b65f5c645d2b2f19af911ba677, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3207869999279581015, guid: 3fe787b65f5c645d2b2f19af911ba677, type: 3}
       propertyPath: m_AnchorMax.x

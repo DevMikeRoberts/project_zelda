@@ -16,11 +16,13 @@ public class Player : MonoBehaviour {
 
     public int currentHP = 0;
     public int maxHP = 100;
+  
     EnemyAI enemy;
 
 
     [SerializeField]
     GameObject objectToDestroy;
+
 
     private void Start() {
       
@@ -63,8 +65,7 @@ public class Player : MonoBehaviour {
     }
 
 
-    public void DamagePlayer(int damage)    {
-        
+    public void DamagePlayer(int damage){
         currentHP -= damage;
         hpBar.SetHealth(currentHP);
         if(currentHP <= 0)
@@ -92,5 +93,7 @@ public class Player : MonoBehaviour {
         {
             enemy.DamageEnemy(attackDamage);
         }
+
+        dmgtaken += damage;
     }
 }
