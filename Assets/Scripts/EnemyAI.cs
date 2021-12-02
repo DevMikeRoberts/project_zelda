@@ -30,7 +30,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private StatusIndicator statusIndicator;
 
+    //[SerializeField]
+    //GameObject objectToDestroy;
+
     public Transform target;
+    //public Transform target2 = null;
 
     //public Camera camera;
 
@@ -45,6 +49,15 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    Player player;
+    bool playerInRange;
+    float timer;
+
+    public float timeBetweenAttacks = 0.5f;
+    public int attackDamage = 10;
+
+    [SerializeField]
+    GameObject objectToDestroy;
 
 
     // Start is called before the first frame update
@@ -64,20 +77,6 @@ public class EnemyAI : MonoBehaviour
         
         
 ;    }
-
-    public void DamageEnemy(int damage)
-    {
-        stats.curHealth = damage;
-        if(stats.curHealth <= 0)
-        {
-            //code to kill the enemy
-        }
-
-        if(statusIndicator != null)
-        {
-            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
-        }
-    }
 
     void UpdatePath()
     {
@@ -132,15 +131,55 @@ public class EnemyAI : MonoBehaviour
         {
             enemygfx.localScale = new Vector3(-1f, 1f, 1f);
         }
+
+        timer += Time.deltaTime;
+
+        if (timer >= timeBetweenAttacks && playerInRange)
+        {
+            Attack();
+        }
     }
 
-    void onCollisionEnter2D(Collision2D _colInfo)
+    void OnTriggerEnter(Collider other)
     {
-        Player _player = _colInfo.collider.GetComponent<Player>();
-        if(_player != null)
+        if (other.gameObject == player)
         {
-            _player.DamagePlayer(stats.damage);
-            DamageEnemy(9999999);
+            playerInRange = true;
+        }
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            playerInRange = false;
+        }
+    }
+
+    void Attack()
+    {
+        timer = 0f;
+
+        if (player.currentHP > 0)
+        {
+            player.DamagePlayer(attackDamage);
+        }
+    }
+
+    public void DamageEnemy(int damage)
+    {
+
+        stats.curHealth -= damage;
+        //hpBar.SetHealth(currentHP);
+        if (stats.curHealth <= 0)
+        {
+            Destroy(objectToDestroy);
+        }
+
+        if (statusIndicator != null)
+        {
+            statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
         }
     }
 }

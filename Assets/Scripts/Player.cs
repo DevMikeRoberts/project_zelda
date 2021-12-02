@@ -9,11 +9,20 @@ public class Player : MonoBehaviour {
     private RaycastHit2D hit;
     public int keyInventory;
     public int endLevel = 0;
+    float timer;
+    public int attackDamage = 10;
+
+    private HPBar hpBar;
 
     public int currentHP = 0;
     public int maxHP = 100;
-    public HPBar hpBar;
-    public int dmgtaken = 0;
+  
+    EnemyAI enemy;
+
+
+    [SerializeField]
+    GameObject objectToDestroy;
+
 
     private void Start() {
       
@@ -59,6 +68,32 @@ public class Player : MonoBehaviour {
     public void DamagePlayer(int damage){
         currentHP -= damage;
         hpBar.SetHealth(currentHP);
+        if(currentHP <= 0)
+        {
+            Destroy(objectToDestroy);
+        }
+    }
+
+    void CheckPosition()
+    {
+        float minAttackDistance = 1.5f;
+        float distance = Vector3.Distance(enemy.transform.position, transform.position);
+
+        if (distance < minAttackDistance && Input.GetKey(KeyCode.Space))
+        {
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        timer = 0f;
+
+        if (enemy.stats.curHealth > 0)
+        {
+            enemy.DamageEnemy(attackDamage);
+        }
+
         dmgtaken += damage;
     }
 }
