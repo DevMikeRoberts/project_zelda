@@ -83,7 +83,6 @@ public class Player : MonoBehaviour {
     {
         StartCoroutine(FadeOut());
         //move to gameover script
-        //GameOverM = GameObject.Find("Game Over");
         GameOverM.GetComponent<GameOver>().gameOverStart();
     }
     IEnumerator FadeOut()
