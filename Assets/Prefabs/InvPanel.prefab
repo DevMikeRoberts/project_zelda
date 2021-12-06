@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4186438624399021587}
   - component: {fileID: 4186438624399021584}
   - component: {fileID: 4186438624399021585}
+  - component: {fileID: 8813560400309923357}
   m_Layer: 5
   m_Name: InvPanel
   m_TagString: Untagged
@@ -93,6 +94,18 @@ MonoBehaviour:
   slot: {fileID: 154858039805985031, guid: b24545d6239470f4d882286546fe2c8e, type: 3}
   slotPanel: {fileID: 4186438626304222895}
   slotNumber: 6
+--- !u!225 &8813560400309923357
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186438624399021591}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4186438626304222892
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,7 +36,11 @@ public class LevelLoader : MonoBehaviour    {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
 
     }
-
+    public void ReloadLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+        Debug.Log("You made it");
+    }
     public void LoadMainMenu()
     {
         //StartCoroutine(LoadLevel(0));

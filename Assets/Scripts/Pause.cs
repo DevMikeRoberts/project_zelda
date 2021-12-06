@@ -56,7 +56,6 @@ public class Pause : MonoBehaviour
     {
         GameManager.instance.SaveState();
         LevelLoader.GetComponent<LevelLoader>().LoadMainMenu();
-        Debug.Log("oh no no no");
     }
 
 }

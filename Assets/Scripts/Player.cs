@@ -16,12 +16,28 @@ public class Player : MonoBehaviour {
     public int dmgtaken = 0;
     public int enemiesKilled = 0;
 
+    GameObject hpMenu;
+    CanvasGroup hpCG;
+    GameObject invM;
+    CanvasGroup invCG;
+    public GameObject GameOverM;
+
     private void Start() {
       
         boxCollider = GetComponent<BoxCollider2D>();
-
         currentHP = maxHP;
+        hpMenu = GameObject.Find("Health_Bar");
+        hpCG = hpMenu.GetComponent<CanvasGroup>();
+        invM = GameObject.Find("InvPanel");
+        invCG = invM.GetComponent<CanvasGroup>();
+    }
 
+    private void Update()
+    {
+        if (currentHP == 0)
+        {
+            OnDeath();
+        }
     }
 
     private void FixedUpdate() {
@@ -61,5 +77,22 @@ public class Player : MonoBehaviour {
         currentHP -= damage;
         hpBar.SetHealth(currentHP);
         dmgtaken += damage;
+    }
+
+    public void OnDeath()
+    {
+        StartCoroutine(FadeOut());
+        //move to gameover script
+        //GameOverM = GameObject.Find("Game Over");
+        GameOverM.GetComponent<GameOver>().gameOverStart();
+    }
+    IEnumerator FadeOut()
+    {
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
+        {
+            hpCG.alpha = i;
+            invCG.alpha = i;
+            yield return null;
+        }
     }
 }
