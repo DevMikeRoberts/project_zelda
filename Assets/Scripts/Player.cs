@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     public int maxHP = 100;
     public HPBar hpBar;
     public int dmgtaken = 0;
+    public int enemiesKilled = 0;
 
     private void Start() {
       

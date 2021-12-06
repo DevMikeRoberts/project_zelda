@@ -18,7 +18,7 @@ public class Portal : Collideable   {
             player = GameObject.Find("Player").GetComponent<Player>();
             //create level end menu here
             EndScreen.CreateEM();
-            player.endLevel = 1; // should initiate LoadNextLevel;
+            //player.endLevel = 1; // should initiate LoadNextLevel; - moved to LevelEnd
         }
 
     }

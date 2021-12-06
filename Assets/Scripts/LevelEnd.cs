@@ -5,67 +5,78 @@ using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour
 {
-    public float stopwatch;
-    public Text stopwatchTxt;
-    public GameObject endScreen;
-    public Image endScreenBG;
+    GameObject EndScreenM;
+    CanvasGroup EndScreenCG;
+    float stopwatch;
+    Text stopwatchTxt;
+    Image endScreenBG;
     private Player player;
-    public Text dmgtotal;
-    public float time = 60f;
+    Text dmgtotal;
+    Text EKtotal;
+    Text scoreTxt;
+    bool flag = true;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        stopwatchTxt.text = stopwatch.ToString();
-        endScreenBG = endScreen.GetComponent<Image>();
+        EndScreenM = GameObject.Find("EndScreen");
+        EndScreenCG = EndScreenM.GetComponent<CanvasGroup>();
+        endScreenBG = EndScreenM.GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        stopwatch += Time.deltaTime;
-        //if (Input.GetKeyDown(KeyCode.Space)){ Time.timeScale = 1;}
+        if(flag == true)
+        {
+            stopwatch += Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && flag == false)
+        {
+            hide();
+            flag = true;
+            player.endLevel = 1;
+        }
     }
     public void CreateEM()
     {
-        endScreenBG.color = Color.white;
-        foreach (Text temp in endScreen.GetComponentsInChildren<Text>())
-        {
-            temp.color = Color.white;
-        }
-        stopwatchTxt.text = Mathf.Round(stopwatch).ToString();
+        flag = false; //stop stopwatch
+        show();
         player = GameObject.Find("Player").GetComponent<Player>();
-        dmgtotal.text = player.dmgtaken.ToString();
         int score = 0;
-        if (int.Parse(stopwatchTxt.text) < 60) { score += 600; }
-        else if (int.Parse(stopwatchTxt.text) > 60 && int.Parse(stopwatchTxt.text) < 300) { score += 600 - (int.Parse(stopwatchTxt.text) - 60) * 2; }
-        else if (int.Parse(stopwatchTxt.text) > 300) { score += 120; }
 
+        //Time
+        stopwatchTxt = GameObject.Find("stopwatch").GetComponent<Text>();
+        int currentTime = (int)Mathf.Round(stopwatch);
+        stopwatchTxt.text = currentTime.ToString();
+        if (currentTime < 60) { score += 600; }
+        else if (currentTime > 60 && currentTime < 300) { score += 600 - (currentTime - 60) * 2; }
+        else if (currentTime > 300) { score += 120; }
+
+        //Damage taken
+        dmgtotal = GameObject.Find("dmgtaken").GetComponent<Text>();
+        dmgtotal.text = player.dmgtaken.ToString();
         score += 300 - player.dmgtaken;
 
-        //score += number of enemies killed * 10;
+        //Enemies Killed
+        EKtotal = GameObject.Find("EKtotal").GetComponent<Text>();
+        EKtotal.text = player.enemiesKilled.ToString();
+        score += player.enemiesKilled * 20;
 
-        //wait on end level screen
-        //Time.timeScale = 0;
-        //StartCoroutine(Wait(time));
-        //StartCoroutine(WaitForKeyDown(keycode.space));
+        //score
+        scoreTxt = GameObject.Find("score").GetComponent<Text>();
+        scoreTxt.text = score.ToString();
 
-        //after resuming: 
-        endScreenBG.color = Color.clear;
-        foreach (Text temp in endScreen.GetComponentsInChildren<Text>())
-        {
-            temp.color = Color.white;
-        }
     }
-    IEnumerator Wait(float time)
+    public void show()
     {
-        yield return new WaitForSeconds(time);
+        EndScreenCG.alpha = 1;
+        EndScreenCG.blocksRaycasts = true;
     }
-    IEnumerator WaitForKeyDown(KeyCode keycode) //wait until input
+    public void hide()
     {
-        do
-        {
-            yield return null;
-        } while (!Input.GetKeyDown(keycode));
+        EndScreenCG.alpha = 0;
+        EndScreenCG.blocksRaycasts = false;
     }
 }
