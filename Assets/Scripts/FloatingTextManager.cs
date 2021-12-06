@@ -8,21 +8,8 @@ public class FloatingTextManager : MonoBehaviour {
     public GameObject textContainer;
     public GameObject textPrefab;
 
-    public static FloatingTextManager txt_instance;
-
     private List<FloatingText> floatingTexts = new List<FloatingText>();
 
-    private void Awake() {
-
-        if (FloatingTextManager.txt_instance != null) {
-            Destroy(gameObject);
-            return;
-        }
-
-        txt_instance = this;
-        DontDestroyOnLoad(gameObject);
-
-    }
 
     private void Update() {
         
@@ -33,9 +20,9 @@ public class FloatingTextManager : MonoBehaviour {
 
     private FloatingText GetFloatingText() {
         
-        FloatingText txt = floatingTexts.Find(t => !t.active);
+       FloatingText txt = floatingTexts.Find(t => !t.active);
 
-       if (txt == null) {
+      if (txt == null) {
            txt = new FloatingText();
            txt.go = Instantiate(textPrefab);
            txt.go.transform.SetParent(textContainer.transform);

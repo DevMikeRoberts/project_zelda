@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour    {
         instance = this;
         //SceneManager.sceneLoaded += SaveState;
         SceneManager.sceneLoaded += LoadState;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
     }
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour    {
 
     //References
     public Player player;
+    public FloatingText floatingText;
     public FloatingTextManager floatingTextManager;
 
 

@@ -12,8 +12,12 @@ public class AngelDialogue : Collideable
     public SpriteRenderer speechBubble;
     private int start = 0;
     private bool firstSpoken = true;
+    private Player player;
 
     protected override void OnCollide(Collider2D coll) {
+
+        player = GameObject.Find("Player").GetComponent<Player>();
+        
         Debug.Log("Collided");
         Debug.Log(coll.name);
         if (coll.name == "Player") {

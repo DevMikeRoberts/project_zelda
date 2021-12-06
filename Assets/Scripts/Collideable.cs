@@ -19,6 +19,7 @@ public class Collideable : MonoBehaviour    {
         boxCollider.OverlapCollider(filter,hits);
 
         for (int i = 0; i < 9; i++) {
+            
             if (hits[i] == null) {
                 continue;
             }
@@ -27,6 +28,7 @@ public class Collideable : MonoBehaviour    {
 
             hits[i] = null;
         }
+
     }
 
     protected virtual void OnCollide(Collider2D coll) {

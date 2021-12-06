@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour {
     public int endLevel = 0;
     float timer;
     public int attackDamage = 10;
+    public Sprite sprite;
 
     private HPBar hpBar;
 
@@ -18,11 +20,7 @@ public class Player : MonoBehaviour {
     public int maxHP = 100;
   
     EnemyAI enemy;
-
-
-    [SerializeField]
-    GameObject objectToDestroy;
-
+    GameObject objectToDestroy; 
 
     private void Start() {
       
@@ -32,7 +30,7 @@ public class Player : MonoBehaviour {
 
     }
 
-    private void FixedUpdate() {
+      private void FixedUpdate() {
 
         float x = Input.GetAxisRaw("Horizontal"); //returns # for axis of movement
         float y = Input.GetAxisRaw("Vertical");
@@ -64,7 +62,6 @@ public class Player : MonoBehaviour {
 
     }
 
-
     public void DamagePlayer(int damage){
         currentHP -= damage;
         hpBar.SetHealth(currentHP);
@@ -94,6 +91,5 @@ public class Player : MonoBehaviour {
             enemy.DamageEnemy(attackDamage);
         }
 
-        dmgtaken += damage;
     }
 }
